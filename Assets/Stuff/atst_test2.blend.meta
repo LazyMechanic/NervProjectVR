@@ -1,0 +1,226 @@
+fileFormatVersion: 2
+guid: c5362b96ee94d4c41af8cc31c544595c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: //RootNode
+    100004: cadera
+    100006: cadera01
+    100008: cannon03
+    100010: cannonL
+    100012: CanonR
+    100014: cubier
+    100016: cubier2
+    100018: cuerpo
+    100020: EspiniIz01
+    100022: EspiniIzq
+    100024: Gun
+    100026: Head
+    100028: Head_AT01
+    100030: LAnckle
+    100032: LFoot
+    100034: LHip
+    100036: ligament
+    100038: ligament01
+    100040: LShin
+    100042: LThigh
+    100044: pie
+    100046: pie01
+    100048: Pierna
+    100050: Pierna01
+    100052: PivoteR
+    100054: RAnckle
+    100056: RFoot
+    100058: RHip
+    100060: Root
+    100062: RShin
+    100064: RThigh
+    100066: up_talon
+    100068: up_talon01
+    100070: Waist
+    400000: Armature
+    400002: //RootNode
+    400004: cadera
+    400006: cadera01
+    400008: cannon03
+    400010: cannonL
+    400012: CanonR
+    400014: cubier
+    400016: cubier2
+    400018: cuerpo
+    400020: EspiniIz01
+    400022: EspiniIzq
+    400024: Gun
+    400026: Head
+    400028: Head_AT01
+    400030: LAnckle
+    400032: LFoot
+    400034: LHip
+    400036: ligament
+    400038: ligament01
+    400040: LShin
+    400042: LThigh
+    400044: pie
+    400046: pie01
+    400048: Pierna
+    400050: Pierna01
+    400052: PivoteR
+    400054: RAnckle
+    400056: RFoot
+    400058: RHip
+    400060: Root
+    400062: RShin
+    400064: RThigh
+    400066: up_talon
+    400068: up_talon01
+    400070: Waist
+    2100000: GREY_PLSTC2
+    2100002: GREY_PLSTC5
+    2100004: GREY_PLSTC3
+    2100006: GREY_PLSTC4
+    2100008: GREY_PLSTC_SUR2
+    2100010: GREY_PLSTCII2
+    2100012: GREY_PLSTC1
+    2100014: GREY_PLSTC6
+    2100016: GREY_PLSTC0
+    2100018: GREY_PLSTC7
+    2100020: GREY_PLSTC_SUR1
+    2100022: GREY_PLSTCII1
+    2100024: GREY_PLSTCII4
+    2100026: GREY_PLSTC_SUR3
+    2100028: GREY_PLSTC8
+    2100030: GREY_PLSTC_SUR0
+    2100032: BLACK_WIRE1
+    2100034: BLACK_WIRE0
+    2100036: GREY_PLSTCII0
+    2100038: GREY_PLSTCII3
+    2300000: cannonL
+    2300002: CanonR
+    2300004: cubier
+    2300006: cubier2
+    2300008: PivoteR
+    3300000: cannonL
+    3300002: CanonR
+    3300004: cubier
+    3300006: cubier2
+    3300008: PivoteR
+    4300000: pie01
+    4300002: up_talon01
+    4300004: ligament01
+    4300006: EspiniIz01
+    4300008: Pierna01
+    4300010: cadera01
+    4300012: pie
+    4300014: up_talon
+    4300016: EspiniIzq
+    4300018: ligament
+    4300020: Pierna
+    4300022: cadera
+    4300024: cuerpo
+    4300026: Head_AT01
+    4300028: cannonL
+    4300030: PivoteR
+    4300032: CanonR
+    4300034: cannon03
+    4300036: cubier
+    4300038: cubier2
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: cadera
+    13700002: cadera01
+    13700004: cannon03
+    13700006: cuerpo
+    13700008: EspiniIz01
+    13700010: EspiniIzq
+    13700012: Head_AT01
+    13700014: ligament
+    13700016: ligament01
+    13700018: pie
+    13700020: pie01
+    13700022: Pierna
+    13700024: Pierna01
+    13700026: up_talon
+    13700028: up_talon01
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
