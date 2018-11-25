@@ -33,6 +33,8 @@ public class TestMechMovementController : MonoBehaviour {
 	[SerializeField] private bool _isRightGrounded = false;
 
 	[SerializeField] private float _timeLine = 0.0f;
+	[SerializeField] private float _prevTimeLine = 0.0f;
+	[SerializeField] private float _deltaTimeLine = 0.0f;
 	[SerializeField] private float _sin = 0.0f;
 	[SerializeField] private float _deltaSin = 0.0f;
 	[SerializeField] private float _cos = 1.0f;
@@ -72,13 +74,15 @@ public class TestMechMovementController : MonoBehaviour {
 
 	void MoveForward()
 	{
+		_prevTimeLine = _timeLine;
 		_prevSin = _sin;
 		_sin = Mathf.Sin(_timeLine) * StepAmplitude;
-		_deltaSin = Mathf.Abs(_prevSin) - Mathf.Abs(_sin);
+		//_deltaSin = Mathf.Abs(_prevSin) - Mathf.Abs(_sin);
+		_deltaSin = Mathf.Abs(_sin) - Mathf.Abs(_prevSin);
 
 		_cos = Mathf.Cos(_timeLine);
 
-		Vector3 frontDirection = Vector3.left * Time.deltaTime * StepForce;
+		Vector3 frontDirection = -Waist.transform.right * Time.deltaTime * StepForce;
 
 		if (_sin > 0)
 		{
@@ -93,13 +97,18 @@ public class TestMechMovementController : MonoBehaviour {
 		//RightHip.transform.rotation = Waist.transform.rotation;
 
 		_timeLine += Time.deltaTime * StepSpeed;
+
+		_deltaTimeLine = _timeLine - _prevTimeLine;
 	}
 
 	void UpdatePosition(Rigidbody body, Vector3 direction)
 	{
-		body.AddForce(Vector3.up * _deltaSin);
-		body.AddForce(direction);
+		///body.AddForce(Vector3.up * _deltaSin);
+		///body.AddForce(direction);
 		//body.gameObject.transform.position += Vector3.up * _dSin;
+
+		Vector3 oldPosition = body.transform.position;
+		body.transform.position = new Vector3(oldPosition.x - (_deltaTimeLine * Time.deltaTime * StepForce), oldPosition.y + _deltaSin * Time.deltaTime * StepForce, oldPosition.z);
 
 		if (UseFootMass)
 		{

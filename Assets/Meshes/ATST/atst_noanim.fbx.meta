@@ -1,80 +1,50 @@
 fileFormatVersion: 2
-guid: f88c2f6f3c2d9ef4a8facf75e8053506
+guid: 37ef8d04d20da2e46b8f70e735cac3eb
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Armature
-    100002: //RootNode
-    100004: cadera
-    100006: cadera01
-    100008: cannon03
-    100010: cannonL
-    100012: CanonR
-    100014: cubier
-    100016: cubier2
-    100018: cuerpo
-    100020: EspiniIz01
-    100022: EspiniIzq
-    100024: Gun
-    100026: Head
-    100028: Head_AT01
-    100030: LAnckle
-    100032: LFoot
-    100034: LHip
-    100036: ligament
-    100038: ligament01
-    100040: LShin
-    100042: LThigh
-    100044: pie
-    100046: pie01
-    100048: Pierna
-    100050: Pierna01
-    100052: PivoteR
-    100054: RAnckle
-    100056: RFoot
-    100058: RHip
-    100060: Root
-    100062: RShin
-    100064: RThigh
-    100066: up_talon
-    100068: up_talon01
-    100070: Waist
-    400000: Armature
-    400002: //RootNode
-    400004: cadera
-    400006: cadera01
-    400008: cannon03
-    400010: cannonL
-    400012: CanonR
-    400014: cubier
-    400016: cubier2
-    400018: cuerpo
-    400020: EspiniIz01
-    400022: EspiniIzq
-    400024: Gun
-    400026: Head
-    400028: Head_AT01
-    400030: LAnckle
-    400032: LFoot
-    400034: LHip
-    400036: ligament
-    400038: ligament01
-    400040: LShin
-    400042: LThigh
-    400044: pie
-    400046: pie01
-    400048: Pierna
-    400050: Pierna01
-    400052: PivoteR
-    400054: RAnckle
-    400056: RFoot
-    400058: RHip
-    400060: Root
-    400062: RShin
-    400064: RThigh
-    400066: up_talon
-    400068: up_talon01
-    400070: Waist
+    100000: //RootNode
+    100002: cadera
+    100004: cadera01
+    100006: cannon03
+    100008: cannonL
+    100010: CanonR
+    100012: cubier
+    100014: cubier2
+    100016: cuerpo
+    100018: EspiniIz01
+    100020: EspiniIzq
+    100022: Head_AT01
+    100024: ligament
+    100026: ligament01
+    100028: pie
+    100030: pie01
+    100032: Pierna
+    100034: Pierna01
+    100036: PivoteR
+    100038: up_talon
+    100040: up_talon01
+    400000: //RootNode
+    400002: cadera
+    400004: cadera01
+    400006: cannon03
+    400008: cannonL
+    400010: CanonR
+    400012: cubier
+    400014: cubier2
+    400016: cuerpo
+    400018: EspiniIz01
+    400020: EspiniIzq
+    400022: Head_AT01
+    400024: ligament
+    400026: ligament01
+    400028: pie
+    400030: pie01
+    400032: Pierna
+    400034: Pierna01
+    400036: PivoteR
+    400038: up_talon
+    400040: up_talon01
     2100000: GREY_PLSTC2
     2100002: GREY_PLSTC5
     2100004: GREY_PLSTC3
@@ -95,16 +65,46 @@ ModelImporter:
     2100034: BLACK_WIRE0
     2100036: GREY_PLSTCII0
     2100038: GREY_PLSTCII3
-    2300000: cannonL
-    2300002: CanonR
-    2300004: cubier
-    2300006: cubier2
-    2300008: PivoteR
-    3300000: cannonL
-    3300002: CanonR
-    3300004: cubier
-    3300006: cubier2
-    3300008: PivoteR
+    2300000: cadera
+    2300002: cadera01
+    2300004: cannon03
+    2300006: cannonL
+    2300008: CanonR
+    2300010: cubier
+    2300012: cubier2
+    2300014: cuerpo
+    2300016: EspiniIz01
+    2300018: EspiniIzq
+    2300020: Head_AT01
+    2300022: ligament
+    2300024: ligament01
+    2300026: pie
+    2300028: pie01
+    2300030: Pierna
+    2300032: Pierna01
+    2300034: PivoteR
+    2300036: up_talon
+    2300038: up_talon01
+    3300000: cadera
+    3300002: cadera01
+    3300004: cannon03
+    3300006: cannonL
+    3300008: CanonR
+    3300010: cubier
+    3300012: cubier2
+    3300014: cuerpo
+    3300016: EspiniIz01
+    3300018: EspiniIzq
+    3300020: Head_AT01
+    3300022: ligament
+    3300024: ligament01
+    3300026: pie
+    3300028: pie01
+    3300030: Pierna
+    3300032: Pierna01
+    3300034: PivoteR
+    3300036: up_talon
+    3300038: up_talon01
     4300000: pie01
     4300002: up_talon01
     4300004: ligament01
@@ -125,26 +125,6 @@ ModelImporter:
     4300034: cannon03
     4300036: cubier
     4300038: cubier2
-    7400000: Default Take
-    7400002: PoseLib
-    7400004: ArmatureAction
-    7400006: ArmatureAction_003
-    9500000: //RootNode
-    13700000: cadera
-    13700002: cadera01
-    13700004: cannon03
-    13700006: cuerpo
-    13700008: EspiniIz01
-    13700010: EspiniIzq
-    13700012: Head_AT01
-    13700014: ligament
-    13700016: ligament01
-    13700018: pie
-    13700020: pie01
-    13700022: Pierna
-    13700024: Pierna01
-    13700026: up_talon
-    13700028: up_talon01
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -197,7 +177,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -221,7 +201,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

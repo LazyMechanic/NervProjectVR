@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f88c2f6f3c2d9ef4a8facf75e8053506
+guid: d846061188217994eb93a1213f7a72dc
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -127,8 +127,8 @@ ModelImporter:
     4300038: cubier2
     7400000: Default Take
     7400002: PoseLib
-    7400004: ArmatureAction
-    7400006: ArmatureAction_003
+    7400004: Rotation
+    7400006: Walking
     9500000: //RootNode
     13700000: cadera
     13700002: cadera01

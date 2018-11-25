@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ATSTAvatarMask
+  m_Mask: 01000000010000000100000001000000010000000000000000000000000000000000000001000000010000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Root
+    m_Weight: 1
+  - m_Path: Root/LFoot
+    m_Weight: 1
+  - m_Path: Root/LFoot/LFoot_end
+    m_Weight: 1
+  - m_Path: Root/LFoot/pie
+    m_Weight: 1
+  - m_Path: Root/RFoot
+    m_Weight: 1
+  - m_Path: Root/RFoot/pie01
+    m_Weight: 1
+  - m_Path: Root/RFoot/RFoot_end
+    m_Weight: 1
+  - m_Path: Root/Waist
+    m_Weight: 1
+  - m_Path: Root/Waist/cuerpo
+    m_Weight: 1
+  - m_Path: Root/Waist/Head
+    m_Weight: 1
+  - m_Path: Root/Waist/Head/Gun
+    m_Weight: 1
+  - m_Path: Root/Waist/Head/Gun/cannon03
+    m_Weight: 1
+  - m_Path: Root/Waist/Head/Gun/cannon03/cubier
+    m_Weight: 1
+  - m_Path: Root/Waist/Head/Gun/cannon03/cubier2
+    m_Weight: 1
+  - m_Path: Root/Waist/Head/Gun/Gun_end
+    m_Weight: 1
+  - m_Path: Root/Waist/Head/Head_AT01
+    m_Weight: 1
+  - m_Path: Root/Waist/Head/Head_AT01/cannonL
+    m_Weight: 1
+  - m_Path: Root/Waist/Head/Head_AT01/CanonR
+    m_Weight: 1
+  - m_Path: Root/Waist/Head/Head_AT01/PivoteR
+    m_Weight: 1
+  - m_Path: Root/Waist/LHip
+    m_Weight: 1
+  - m_Path: Root/Waist/LHip/cadera
+    m_Weight: 1
+  - m_Path: Root/Waist/LHip/LThigh
+    m_Weight: 1
+  - m_Path: Root/Waist/LHip/LThigh/LShin
+    m_Weight: 1
+  - m_Path: Root/Waist/LHip/LThigh/LShin/EspiniIzq
+    m_Weight: 1
+  - m_Path: Root/Waist/LHip/LThigh/LShin/LAnckle
+    m_Weight: 1
+  - m_Path: Root/Waist/LHip/LThigh/LShin/LAnckle/LAnckle_end
+    m_Weight: 1
+  - m_Path: Root/Waist/LHip/LThigh/LShin/LAnckle/up_talon
+    m_Weight: 1
+  - m_Path: Root/Waist/LHip/LThigh/LShin/ligament
+    m_Weight: 1
+  - m_Path: Root/Waist/LHip/LThigh/Pierna
+    m_Weight: 1
+  - m_Path: Root/Waist/RHip
+    m_Weight: 1
+  - m_Path: Root/Waist/RHip/cadera01
+    m_Weight: 1
+  - m_Path: Root/Waist/RHip/RThigh
+    m_Weight: 1
+  - m_Path: Root/Waist/RHip/RThigh/Pierna01
+    m_Weight: 1
+  - m_Path: Root/Waist/RHip/RThigh/RShin
+    m_Weight: 1
+  - m_Path: Root/Waist/RHip/RThigh/RShin/EspiniIz01
+    m_Weight: 1
+  - m_Path: Root/Waist/RHip/RThigh/RShin/ligament01
+    m_Weight: 1
+  - m_Path: Root/Waist/RHip/RThigh/RShin/RAnckle
+    m_Weight: 1
+  - m_Path: Root/Waist/RHip/RThigh/RShin/RAnckle/RAnckle_end
+    m_Weight: 1
+  - m_Path: Root/Waist/RHip/RThigh/RShin/RAnckle/up_talon01
+    m_Weight: 1
