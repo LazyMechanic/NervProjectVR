@@ -41,6 +41,7 @@ ModelImporter:
     100070: up_talon
     100072: up_talon01
     100074: Waist
+    100076: Head_AT01_001
     400000: Armature
     400002: //RootNode
     400004: cadera
@@ -79,6 +80,7 @@ ModelImporter:
     400070: up_talon
     400072: up_talon01
     400074: Waist
+    400076: Head_AT01_001
     2100000: BLACK_WIRE0
     2100002: GREY_PLSTCII3
     2100004: GREY_PLSTCII0
@@ -99,16 +101,19 @@ ModelImporter:
     2100034: GREY_PLSTC3
     2100036: GREY_PLSTC5
     2100038: GREY_PLSTC2
+    2100040: GREY_PLSTC_SUR3_003
     2300000: cannonL
     2300002: CanonR
     2300004: cubier
     2300006: cubier2
     2300008: PivoteR
+    2300010: Head_AT01_001
     3300000: cannonL
     3300002: CanonR
     3300004: cubier
     3300006: cubier2
     3300008: PivoteR
+    3300010: Head_AT01_001
     4300000: cannon03
     4300002: cubier2
     4300004: cubier
@@ -129,12 +134,14 @@ ModelImporter:
     4300034: ligament01
     4300036: up_talon01
     4300038: pie01
+    4300040: Head_AT01_001
     7400000: Default Take
     7400002: LeftRotation
     7400004: PoseLib
     7400006: Walking
     7400008: Rotation
     7400010: Idle
+    7400012: Idle_002
     9500000: //RootNode
     13700000: cadera
     13700002: cadera01
