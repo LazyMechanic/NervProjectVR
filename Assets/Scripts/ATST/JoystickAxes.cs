@@ -4,7 +4,7 @@ using UnityEngine;
 
 public struct JoystickAxes {
 
-	public float Vertical { get; set; }
-	public float Horizontal { get; set; }
-	public float Round { get; set; }
+	public float vertical { get; set; }
+	public float horizontal { get; set; }
+	public float round { get; set; }
 }

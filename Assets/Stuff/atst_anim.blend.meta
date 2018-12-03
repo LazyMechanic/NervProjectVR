@@ -240,6 +240,9 @@ ModelImporter:
     7400032: del2
     7400034: del3
     7400036: WalkingBack
+    7400038: TurnOff
+    7400040: TurnOn
+    7400042: IdleOff
     9500000: //RootNode
     13700000: cadera
     13700002: cadera01
