@@ -15,25 +15,20 @@ public class ATSTAnimationController : MonoBehaviour {
 		
 	}
 
-	public void AnimationUpdate(float horizontal, float vertical, float round, bool power)
+	public void AnimationUpdate(JoystickAxes joystick, bool power)
 	{
-		animator.SetFloat("Round", round);
-		animator.SetFloat("Vertical", vertical);
-		animator.SetFloat("Horizontal", horizontal);
+		animator.SetFloat("Round", joystick.round);
+		animator.SetFloat("Vertical", joystick.vertical);
+		animator.SetFloat("Horizontal", joystick.horizontal);
 		animator.SetBool("Power", power);
 
 		animator.speed = 1.0f;
 
-		// If mech turns off then no animate other animation
-		if (!power)
-		{
-			return;
-		}
-
 		// Idle
-		if (Mathf.Abs(round) < 0.01f &&
-			Mathf.Abs(vertical) < 0.01f &&
-			Mathf.Abs(horizontal) < 0.01f)
+		if (Mathf.Abs(joystick.round) < 0.01f &&
+			Mathf.Abs(joystick.vertical) < 0.01f &&
+			Mathf.Abs(joystick.horizontal) < 0.01f ||
+			!power)
 		{
 			IsWalkAndStrafe = false;
 			IsWalkAndRotation = false;
@@ -41,29 +36,29 @@ public class ATSTAnimationController : MonoBehaviour {
 		}
 		// Walk and strafe || walk
 		else if (
-			Mathf.Abs(round) < 0.01f &&
-			Mathf.Abs(vertical) > 0.01f &&
-			Mathf.Abs(horizontal) > 0.01f ||
-			Mathf.Abs(round) < 0.01f &&
-			Mathf.Abs(vertical) > 0.01f &&
-			Mathf.Abs(horizontal) < 0.01f)
+			Mathf.Abs(joystick.round) < 0.01f &&
+			Mathf.Abs(joystick.vertical) > 0.01f &&
+			Mathf.Abs(joystick.horizontal) > 0.01f ||
+			Mathf.Abs(joystick.round) < 0.01f &&
+			Mathf.Abs(joystick.vertical) > 0.01f &&
+			Mathf.Abs(joystick.horizontal) < 0.01f)
 		{
-			animator.speed = Mathf.Max(Mathf.Abs(vertical), Mathf.Abs(horizontal));
-		
+			animator.speed = Mathf.Max(Mathf.Abs(joystick.vertical), Mathf.Abs(joystick.horizontal));
+
 			IsWalkAndStrafe = true;
 			IsWalkAndRotation = false;
 			IsStrafeAndRotation = false;
 		}
 		// Walk and rotation || rotation
 		else if (
-			Mathf.Abs(round) > 0.01f &&
-			Mathf.Abs(vertical) > 0.01f &&
-			Mathf.Abs(horizontal) < 0.01f ||
-			Mathf.Abs(round) > 0.01f &&
-			Mathf.Abs(vertical) < 0.01f &&
-			Mathf.Abs(horizontal) < 0.01f)
+			Mathf.Abs(joystick.round) > 0.01f &&
+			Mathf.Abs(joystick.vertical) > 0.01f &&
+			Mathf.Abs(joystick.horizontal) < 0.01f ||
+			Mathf.Abs(joystick.round) > 0.01f &&
+			Mathf.Abs(joystick.vertical) < 0.01f &&
+			Mathf.Abs(joystick.horizontal) < 0.01f)
 		{
-			animator.speed = Mathf.Max(Mathf.Abs(vertical), Mathf.Abs(round));
+			animator.speed = Mathf.Max(Mathf.Abs(joystick.vertical), Mathf.Abs(joystick.round));
 
 			IsWalkAndStrafe = false;
 			IsWalkAndRotation = true;
@@ -71,14 +66,15 @@ public class ATSTAnimationController : MonoBehaviour {
 		}
 		// Strafe and rotation || strafe
 		else if (
-			Mathf.Abs(round) > 0.01f &&
-			Mathf.Abs(vertical) < 0.01f &&
-			Mathf.Abs(horizontal) > 0.01f ||
-			Mathf.Abs(round) < 0.01f &&
-			Mathf.Abs(vertical) < 0.01f &&
-			Mathf.Abs(horizontal) > 0.01f)
+			joystick.traction > 0.01f && (
+			Mathf.Abs(joystick.round) > 0.01f &&
+			Mathf.Abs(joystick.vertical) < 0.01f &&
+			Mathf.Abs(joystick.horizontal) > 0.01f ||
+			Mathf.Abs(joystick.round) < 0.01f &&
+			Mathf.Abs(joystick.vertical) < 0.01f &&
+			Mathf.Abs(joystick.horizontal) > 0.01f))
 		{
-			animator.speed = Mathf.Max(Mathf.Abs(round), Mathf.Abs(horizontal));
+			animator.speed = Mathf.Max(Mathf.Abs(joystick.round), Mathf.Abs(joystick.horizontal));
 
 			IsWalkAndStrafe = false;
 			IsWalkAndRotation = false;
