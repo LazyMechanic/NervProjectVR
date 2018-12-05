@@ -45,17 +45,21 @@ public class ATSTMovementController : MonoBehaviour {
 		
 		joystick.horizontal = Input.GetAxis("Horizontal");
 		joystick.vertical = Input.GetAxis("Vertical");
-		joystick.traction = -(Input.GetAxis("Traction") - 1) * 0.5f;
+		joystick.traction = Input.GetAxis("Traction");
 		joystick.round = Input.GetAxis("Round");
+
+		// X-52 traction
+		joystick.traction = -(joystick.traction - 1) * 0.5f;
 
 		if (Input.GetButtonDown("PowerOn"))
 		{
 			_power = !_power;
 		}
 
-		//Debug.Log("Horizontal = " + joystick.horizontal);
-		//Debug.Log("Vertical = " + joystick.vertical);
-		//Debug.Log("Round = " + joystick.round);
+		Debug.Log("Horizontal = " + joystick.horizontal);
+		Debug.Log("Vertical = " + joystick.vertical);
+		Debug.Log("Round = " + joystick.round);
+		Debug.Log("Traction = " + joystick.traction);
 
 		animationController.AnimationUpdate(joystick, _power);
 	}
@@ -71,15 +75,21 @@ public class ATSTMovementController : MonoBehaviour {
 		if (_power)
 		{
 			Vector3 newVelocity = new Vector3(0, 0, 0);
-			//Vector3 direction = new Vector3(0, 0, 0);
+			Vector3 direction = new Vector3(0, 0, 0);
 
 			//float normalizedVertical = (Mathf.Abs(joystick.vertical) > 0 ? joystick.vertical / Mathf.Abs(joystick.vertical) : 0);
 			//float normalizedHorizontal = (Mathf.Abs(joystick.horizontal) > 0 ? joystick.horizontal / Mathf.Abs(joystick.horizontal) : 0);
 
-			newVelocity +=
-				_forward * joystick.vertical * forwardSpeed * Time.deltaTime +
-				_right * joystick.horizontal * strafeSpeed * Time.deltaTime;
+			direction =
+				_forward * joystick.vertical +
+				_right * joystick.horizontal;
 
+			//newVelocity +=
+			//	_forward * joystick.vertical * forwardSpeed * Time.deltaTime +
+			//	_right * joystick.horizontal * strafeSpeed * Time.deltaTime;
+
+			newVelocity.x = direction.normalized.x * joystick.traction * forwardSpeed * Time.deltaTime;
+			newVelocity.z = direction.normalized.z * joystick.traction * strafeSpeed * Time.deltaTime;
 			// Falling speed (G force)
 			newVelocity.y = atstRigidbody.velocity.y;
 

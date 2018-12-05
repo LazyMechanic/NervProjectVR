@@ -11,15 +11,19 @@ public class ATSTAnimationController : MonoBehaviour {
 	public bool IsStrafeAndRotation { get; private set; }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		
 	}
 
 	public void AnimationUpdate(JoystickAxes joystick, bool power)
 	{
+		float normalizedVertical = (Mathf.Abs(joystick.vertical) > 0 ? joystick.vertical / Mathf.Abs(joystick.vertical) : 0);
+		float normalizedHorizontal = (Mathf.Abs(joystick.horizontal) > 0 ? joystick.horizontal / Mathf.Abs(joystick.horizontal) : 0);
+
 		animator.SetFloat("Round", joystick.round);
-		animator.SetFloat("Vertical", joystick.vertical);
-		animator.SetFloat("Horizontal", joystick.horizontal);
+		animator.SetFloat("Vertical", normalizedVertical * joystick.traction);
+		animator.SetFloat("Horizontal", normalizedHorizontal * joystick.traction);
 		animator.SetBool("Power", power);
 
 		animator.speed = 1.0f;
@@ -43,7 +47,8 @@ public class ATSTAnimationController : MonoBehaviour {
 			Mathf.Abs(joystick.vertical) > 0.01f &&
 			Mathf.Abs(joystick.horizontal) < 0.01f)
 		{
-			animator.speed = Mathf.Max(Mathf.Abs(joystick.vertical), Mathf.Abs(joystick.horizontal));
+			//animator.speed = Mathf.Max(Mathf.Abs(joystick.vertical), Mathf.Abs(joystick.horizontal));
+			animator.speed = joystick.traction;
 
 			IsWalkAndStrafe = true;
 			IsWalkAndRotation = false;
@@ -58,7 +63,8 @@ public class ATSTAnimationController : MonoBehaviour {
 			Mathf.Abs(joystick.vertical) < 0.01f &&
 			Mathf.Abs(joystick.horizontal) < 0.01f)
 		{
-			animator.speed = Mathf.Max(Mathf.Abs(joystick.vertical), Mathf.Abs(joystick.round));
+			//animator.speed = Mathf.Max(Mathf.Abs(joystick.vertical), Mathf.Abs(joystick.round));
+			animator.speed = joystick.traction;
 
 			IsWalkAndStrafe = false;
 			IsWalkAndRotation = true;
@@ -74,7 +80,8 @@ public class ATSTAnimationController : MonoBehaviour {
 			Mathf.Abs(joystick.vertical) < 0.01f &&
 			Mathf.Abs(joystick.horizontal) > 0.01f))
 		{
-			animator.speed = Mathf.Max(Mathf.Abs(joystick.round), Mathf.Abs(joystick.horizontal));
+			//animator.speed = Mathf.Max(Mathf.Abs(joystick.round), Mathf.Abs(joystick.horizontal));
+			animator.speed = joystick.traction;
 
 			IsWalkAndStrafe = false;
 			IsWalkAndRotation = false;
