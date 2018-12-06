@@ -80,16 +80,16 @@ public class ATSTMovementController : MonoBehaviour {
 			//float normalizedVertical = (Mathf.Abs(joystick.vertical) > 0 ? joystick.vertical / Mathf.Abs(joystick.vertical) : 0);
 			//float normalizedHorizontal = (Mathf.Abs(joystick.horizontal) > 0 ? joystick.horizontal / Mathf.Abs(joystick.horizontal) : 0);
 
-			direction =
-				_forward * joystick.vertical +
-				_right * joystick.horizontal;
+			//direction =
+			//	_forward * joystick.vertical +
+			//	_right * joystick.horizontal;
 
-			//newVelocity +=
-			//	_forward * joystick.vertical * forwardSpeed * Time.deltaTime +
-			//	_right * joystick.horizontal * strafeSpeed * Time.deltaTime;
+			newVelocity +=
+				_forward * joystick.vertical * forwardSpeed * Time.deltaTime +
+				_right * joystick.horizontal * strafeSpeed * Time.deltaTime;
 
-			newVelocity.x = direction.normalized.x * joystick.traction * forwardSpeed * Time.deltaTime;
-			newVelocity.z = direction.normalized.z * joystick.traction * strafeSpeed * Time.deltaTime;
+			//newVelocity.x = direction.normalized.x * joystick.traction * forwardSpeed * Time.deltaTime;
+			//newVelocity.z = direction.normalized.z * joystick.traction * strafeSpeed * Time.deltaTime;
 			// Falling speed (G force)
 			newVelocity.y = atstRigidbody.velocity.y;
 
