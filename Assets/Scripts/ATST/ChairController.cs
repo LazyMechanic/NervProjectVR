@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class ChairController : MonoBehaviour {
 
     public float pitch = 0;
@@ -48,22 +47,27 @@ public class ChairController : MonoBehaviour {
         Vector3 curVelocity = (curPosition - _lastPosition) / Time.deltaTime;
         Vector3 curAcceleration = (curVelocity - _lastVelocity) / Time.deltaTime;
 
-		Vector3 curForwardAcceleration = curAcceleration.magnitude * _forward;
-		Vector3 curStrafeAcceleration = curAcceleration.magnitude * _right;
+		Matrix4x4 A = new Matrix4x4();
+		A.SetColumn(0, new Vector4(_forward.x,	_forward.y,	_forward.z,	0));
+		A.SetColumn(1, new Vector4(_right.x,	_right.y,	_right.z,	0));
+		A.SetColumn(2, new Vector4(_up.x,		_up.y,		_up.z,		0));
+		A.SetColumn(3, new Vector4(0,			0,			0,			1));
 
+		A = A.inverse;
 
+		// X - right/left,
+		// Y - up/down
+		// Z - forward/back
+		Vector3 curLocalAcceleration = A.MultiplyPoint3x4(curAcceleration);
 
-		//Vector3 curLocalAcceleration = new Vector3()
-  //      {
-  //          x = localXAcceleration,
-  //          y = localYAcceleration,
-  //          z = localZAcceleration
-  //      };
+		//Debug.Log("|curLocalAcceleration| = " + curLocalAcceleration.magnitude);
+		//Debug.Log("curLocalAcceleration   = " + curLocalAcceleration);
+		//Debug.Log("|curAcceleration| = " + curAcceleration.magnitude);
+		//Debug.Log("curAcceleration   = " + curAcceleration);
 
-        Debug.Log("curAcceleration = " + curAcceleration);
-        Debug.Log("curLocalAcceleration = " + curAcceleration);
+		//Debug.DrawLine(curPosition, curPosition + curAcceleration, Color.red);
 
-        _chairController.Pitch = pitch;
+		_chairController.Pitch = pitch;
         _chairController.Roll = roll;
 
         _lastPosition = curPosition;
