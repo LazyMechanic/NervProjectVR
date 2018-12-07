@@ -13,6 +13,11 @@ public class HeadController : MonoBehaviour {
 	public float rotationY { get; private set; }
 	public float rotationX { get; private set; }
 
+	public readonly float maxRotationY = 30;
+	public readonly float minRotationY = -30;
+	public readonly float maxRotationX = 30;
+	public readonly float minRotationX = -30;
+
 	private bool _movingToOrigin = false;
 
 	private JoystickAxes _joystick;
@@ -37,10 +42,6 @@ public class HeadController : MonoBehaviour {
 
 		_joystick.headHorizontal = Input.GetAxis("HeadHorizontal");
 		_joystick.headVertical = Input.GetAxis("HeadVertical");
-
-
-		Debug.Log("HeadHorizontal = " + _joystick.headHorizontal);
-		Debug.Log("HeadVertical   = " + _joystick.headVertical);
 	}
 
 	void FixedUpdate()
@@ -62,14 +63,6 @@ public class HeadController : MonoBehaviour {
 	{
 		if (animator.GetBool("Power"))
 		{
-			//RotateAroundPoint(head, _joystick.headVertical * rotationSpeed, _right, movementOrigin.position);
-			//head.MovePosition(movementOrigin.position);
-
-			//RotateAroundPoint(head, _joystick.headHorizontal * rotationSpeed, _up, movementOrigin.position);
-			//head.MovePosition(movementOrigin.position);
-
-			//if (head.transform.rotation.eulerAngles.)
-
 			if (Input.GetButtonDown("ResetHeadRotation"))
 			{
 				rotationY = 0;
@@ -92,7 +85,7 @@ public class HeadController : MonoBehaviour {
 			rotationY += _joystick.headHorizontal * rotationSpeed;
 			rotationX += _joystick.headVertical * rotationSpeed;
 
-			if (rotationY > -30 && rotationY < 30)
+			if (rotationY > minRotationY && rotationY < maxRotationY)
 			{
 				head.transform.RotateAround(head.transform.position, rotationOrigin.up, _joystick.headHorizontal * rotationSpeed);
 			}
@@ -101,7 +94,7 @@ public class HeadController : MonoBehaviour {
 				rotationY -= _joystick.headHorizontal * rotationSpeed;
 			}
 
-			if (rotationX > -30 && rotationX < 30)
+			if (rotationX > minRotationX && rotationX < maxRotationX)
 			{
 				head.transform.RotateAround(head.transform.position, _right, _joystick.headVertical * rotationSpeed);
 			}
@@ -112,8 +105,10 @@ public class HeadController : MonoBehaviour {
 		}
 		else
 		{
-			MoveToOriginRotation();
-			_movingToOrigin = false;
+			if (head.rotation != new Quaternion(0, rotationOrigin.transform.rotation.y, 0, head.transform.rotation.w))
+			{
+				MoveToOriginRotation();
+			}
 		}
 	}
 

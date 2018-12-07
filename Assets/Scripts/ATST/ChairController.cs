@@ -10,8 +10,8 @@ public class ChairController : MonoBehaviour {
     public int portNumber = 6;
 
 	public Transform chairBone;
-
 	public HeadController headController;
+	public ATSTMovementController atstController;
 
     private Vector3 _lastPosition;
     private Vector3 _lastVelocity;
@@ -117,15 +117,18 @@ public class ChairController : MonoBehaviour {
 
 	private void CalculateRotation()
 	{
-		//float AB = _curLocalVelocity.magnitude * Mathf.Cos(Vector3.Angle(_curLocalVelocity, _forward));
-		//float BC = _curLocalVelocity.magnitude * Mathf.Cos(Vector3.Angle(_curLocalVelocity, _right));
-		//float BD = Mathf.Sqrt(9.8f * 9.8f - _curLocalVelocity.magnitude * _curLocalVelocity.magnitude);
+		float tempPitch = chairBone.localRotation.eulerAngles.z + headController.rotationX * (7 / headController.maxRotationY);
+		float tempRoll = chairBone.localRotation.eulerAngles.x;
 
-		//pitch = Mathf.Atan2(BD, AB) * Mathf.Sign(_curLocalVelocity.x) * Mathf.Rad2Deg / 3;
-		//roll = Mathf.Atan2(BD, BC) * Mathf.Sign(_curLocalVelocity.z) * Mathf.Rad2Deg / 3;
-
-		float tempPitch = chairBone.eulerAngles.z + Mathf.Clamp(headController.rotationX, -4, 4);
-		float tempRoll = chairBone.eulerAngles.x;
+		// If start from idle then sets slow acceleration to
+		// opposite direction than velocity direction
+		if (atstController.atstRigidbody.velocity != atstController.lastVelocity &&
+			atstController.lastVelocity == Vector3.zero)
+		{
+			// Projects
+			tempPitch -= 3 * (Vector3.Dot(atstController.atstRigidbody.velocity, -atstController.atstRigidbody.transform.right) / (-atstController.atstRigidbody.transform.right.magnitude));
+			tempRoll -= 3 * (Vector3.Dot(atstController.atstRigidbody.velocity, atstController.atstRigidbody.transform.forward) / (atstController.atstRigidbody.transform.forward.magnitude));
+		}
 
 		if (tempPitch > 180)
 		{

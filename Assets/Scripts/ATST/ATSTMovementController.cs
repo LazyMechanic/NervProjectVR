@@ -14,6 +14,8 @@ public class ATSTMovementController : MonoBehaviour {
 
 	public JoystickAxes joystick;
 
+	public Vector3 lastVelocity { get; private set; }
+
 	public float forwardSpeed = 100.0f;
 	public float strafeSpeed = 30.0f;
 	public float roundSpeed = 0.5f;
@@ -102,10 +104,13 @@ public class ATSTMovementController : MonoBehaviour {
 
 			//newVelocity.x = direction.normalized.x * joystick.traction * forwardSpeed * Time.deltaTime;
 			//newVelocity.z = direction.normalized.z * joystick.traction * strafeSpeed * Time.deltaTime;
+
 			// Falling speed (G force)
 			newVelocity.y = atstRigidbody.velocity.y;
 
 			atstRigidbody.velocity = newVelocity;
+
+			lastVelocity = atstRigidbody.velocity;
 		}
 	}
 
