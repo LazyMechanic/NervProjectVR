@@ -51,6 +51,8 @@ ModelImporter:
     100090: up_talon
     100092: up_talon01
     100094: Waist
+    100096: Chair
+    100098: Chair_end
     400000: //RootNode
     400002: cadera
     400004: cadera01
@@ -99,6 +101,8 @@ ModelImporter:
     400090: up_talon
     400092: up_talon01
     400094: Waist
+    400096: Chair
+    400098: Chair_end
     2100000: GREY_PLSTCII4
     2100002: GREY_PLSTC_SUR3
     2100004: Johnathon_20160405_1502_Johnathon_20160405_1502_Johnathon_20160
@@ -657,8 +661,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|TurnOn
       takeName: Armature|TurnOn
-      firstFrame: 0
-      lastFrame: 72
+      firstFrame: 18
+      lastFrame: 71
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -685,7 +689,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Armature|TurnOff
       takeName: Armature|TurnOff
-      firstFrame: 0
+      firstFrame: 18
       lastFrame: 71
       wrapMode: 0
       orientationOffsetY: 0

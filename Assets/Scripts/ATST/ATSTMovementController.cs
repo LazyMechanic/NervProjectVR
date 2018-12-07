@@ -30,19 +30,18 @@ public class ATSTMovementController : MonoBehaviour {
 	// Use this for initialization
 	private void Start ()
 	{
-		
+		for (int i = 0; i < Input.GetJoystickNames().Length; i++)
+		{
+
+			Debug.Log(Input.GetJoystickNames()[i]);
+		}
 	}
 	
 	// Update is called once per frame
 	private void Update ()
 	{
-		_forward = -atstRigidbody.transform.right;
-		_back = -_forward;
-		_left = -atstRigidbody.transform.forward;
-		_right = -_left;
-		_up = atstRigidbody.transform.up;
-		_down = -_up;
-		
+		UpdateNormals();
+
 		joystick.horizontal = Input.GetAxis("Horizontal");
 		joystick.vertical = Input.GetAxis("Vertical");
 		joystick.traction = Input.GetAxis("Traction");
@@ -56,21 +55,34 @@ public class ATSTMovementController : MonoBehaviour {
 			_power = !_power;
 		}
 
-		Debug.Log("Horizontal = " + joystick.horizontal);
-		Debug.Log("Vertical = " + joystick.vertical);
-		Debug.Log("Round = " + joystick.round);
-		Debug.Log("Traction = " + joystick.traction);
+		//Debug.Log("Horizontal = " + joystick.horizontal);
+		//Debug.Log("Vertical = " + joystick.vertical);
+		//Debug.Log("Round = " + joystick.round);
+		//Debug.Log("Traction = " + joystick.traction);
+
+		//Debug.Log("HeadHorizontal = " + Input.GetAxis("HeadHorizontal"));
+		//Debug.Log("HeadVertical   = " + Input.GetAxis("HeadVertical"));
 
 		animationController.AnimationUpdate(joystick, _power);
 	}
 
 	private void FixedUpdate()
 	{
-		Move();
-		Rotate();
+		AtstMove();
+		AtstRotate();
 	}
 
-	private void Move()
+	private void UpdateNormals()
+	{
+		_forward = -transform.right;
+		_back = -_forward;
+		_left = -transform.forward;
+		_right = -_left;
+		_up = transform.up;
+		_down = -_up;
+	}
+
+	private void AtstMove()
 	{
 		if (_power)
 		{
@@ -97,7 +109,7 @@ public class ATSTMovementController : MonoBehaviour {
 		}
 	}
 
-	private void Rotate()
+	private void AtstRotate()
 	{
         if (_power)
         {
@@ -105,10 +117,18 @@ public class ATSTMovementController : MonoBehaviour {
             if (animationController.IsWalkAndRotation ||
                 animationController.IsStrafeAndRotation)
             {
-				Quaternion q = Quaternion.AngleAxis(joystick.round * roundSpeed * Time.deltaTime, _up);
-				atstRigidbody.MovePosition(q * (atstRigidbody.transform.position - rotationPoint.position) + rotationPoint.position);
-				atstRigidbody.MoveRotation(atstRigidbody.transform.rotation * q);
+				//Quaternion q = Quaternion.AngleAxis(joystick.round * roundSpeed * Time.deltaTime, _up);
+				//atstRigidbody.MovePosition(q * (atstRigidbody.transform.position - rotationPoint.position) + rotationPoint.position);
+				//atstRigidbody.MoveRotation(atstRigidbody.transform.rotation * q);
+				RotateAroundPoint(atstRigidbody, joystick.round * roundSpeed * Time.deltaTime, _up, rotationPoint.position);
 			}
         }
     }
+
+	private void RotateAroundPoint(Rigidbody body, float angle, Vector3 axis, Vector3 origin)
+	{
+		Quaternion q = Quaternion.AngleAxis(angle, axis);
+		body.MovePosition(q * (body.transform.position - origin) + origin);
+		body.MoveRotation(body.transform.rotation * q);
+	}
 }
