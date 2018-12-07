@@ -6,7 +6,8 @@ public class HeadController : MonoBehaviour {
 
 	public Rigidbody head;
 	public Transform rotationOrigin;
-	public Animator animator;
+
+	public ATSTPowerController power;
 
 	public float rotationSpeed = 1.0f;
 
@@ -61,7 +62,7 @@ public class HeadController : MonoBehaviour {
 
 	void HeadRotate()
 	{
-		if (animator.GetBool("Power"))
+		if (power.state)
 		{
 			if (Input.GetButtonDown("ResetHeadRotation"))
 			{
