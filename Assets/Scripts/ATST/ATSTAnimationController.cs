@@ -11,6 +11,7 @@ public class ATSTAnimationController : MonoBehaviour {
 	public bool isWalkAndStrafe { get; private set; }
 	public bool isWalkAndRotation { get; private set; }
 	public bool isStrafeAndRotation { get; private set; }
+	public bool isIdle { get; private set; }
 
 	private JoystickAxes _joystick;
 	private JoystickAxes _lastJoystick = new JoystickAxes()
@@ -55,7 +56,7 @@ public class ATSTAnimationController : MonoBehaviour {
 		
 		// Add condition "car burn out"
 		// ---------------------------------------------------------------------------------------------------------------- //
-		//if ()
+		if (false)
 		{
 			float normalizedRound = (Mathf.Abs(_joystick.round) > 0 ? Mathf.Sign(_joystick.round) : 0);
 			float normalizedVertical = (Mathf.Abs(_joystick.vertical) > 0 ? Mathf.Sign(_joystick.vertical) : 0);
@@ -74,6 +75,7 @@ public class ATSTAnimationController : MonoBehaviour {
 		//animator.SetFloat("Round", _joystick.round);
 		//animator.SetFloat("Vertical", _joystick.vertical);
 		//animator.SetFloat("Horizontal", _joystick.horizontal);
+		isIdle = false;
 
 		animator.SetFloat("Round", curAnimationRound);
 		animator.SetFloat("Vertical", curAnimationVertical);
@@ -88,9 +90,10 @@ public class ATSTAnimationController : MonoBehaviour {
 			Mathf.Abs(_joystick.horizontal) < 0.01f ||
 			!power.state)
 		{
-			isWalkAndStrafe = false;
+			isWalkAndStrafe = false; // main idle animation
 			isWalkAndRotation = false;
 			isStrafeAndRotation = false;
+			isIdle = true;
 		}
 		// Walk and strafe || walk
 		else if (

@@ -45,13 +45,9 @@ public class ATSTMovementController : MonoBehaviour {
 
 		UpdateJoystickAxes();
 
-		//Debug.Log("Horizontal = " + joystick.horizontal);
-		//Debug.Log("Vertical = " + joystick.vertical);
-		//Debug.Log("Round = " + joystick.round);
-		//Debug.Log("Traction = " + joystick.traction);
-
-		//Debug.Log("HeadHorizontal = " + Input.GetAxis("HeadHorizontal"));
-		//Debug.Log("HeadVertical   = " + Input.GetAxis("HeadVertical"));
+		//Debug.Log("Round = " + _joystick.round);
+		//Debug.Log("Vertical = " + _joystick.vertical);
+		//Debug.Log("Horizontal = " + _joystick.horizontal);
 	}
 
 	private void FixedUpdate()
@@ -123,9 +119,6 @@ public class ATSTMovementController : MonoBehaviour {
             if (animationController.isWalkAndRotation ||
                 animationController.isStrafeAndRotation)
             {
-				//Quaternion q = Quaternion.AngleAxis(joystick.round * roundSpeed * Time.deltaTime, _up);
-				//atstRigidbody.MovePosition(q * (atstRigidbody.transform.position - rotationPoint.position) + rotationPoint.position);
-				//atstRigidbody.MoveRotation(atstRigidbody.transform.rotation * q);
 				RotateAroundPoint(atstRigidbody, _joystick.round * roundSpeed * Time.deltaTime, _up, rotationPoint.position);
 			}
         }

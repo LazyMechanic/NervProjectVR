@@ -275,7 +275,7 @@ InputManager:
     snap: 1
     invert: 0
     type: 2
-    axis: 11
+    axis: 2
     joyNum: 1
   - serializedVersion: 3
     m_Name: Fire2

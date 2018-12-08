@@ -75,7 +75,7 @@ public class HeadController : MonoBehaviour {
 			{
 				MoveToOriginRotation();
 
-				if (head.rotation == new Quaternion(0, rotationOrigin.transform.rotation.y, 0, head.transform.rotation.w))
+				if (head.rotation == rotationOrigin.transform.rotation)
 				{
 					_movingToOrigin = false;
 				}
