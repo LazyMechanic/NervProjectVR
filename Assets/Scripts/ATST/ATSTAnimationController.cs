@@ -75,7 +75,7 @@ public class ATSTAnimationController : MonoBehaviour {
 		//animator.SetFloat("Round", _joystick.round);
 		//animator.SetFloat("Vertical", _joystick.vertical);
 		//animator.SetFloat("Horizontal", _joystick.horizontal);
-		isIdle = false;
+		bool localIsIdle = false;
 
 		animator.SetFloat("Round", curAnimationRound);
 		animator.SetFloat("Vertical", curAnimationVertical);
@@ -93,7 +93,7 @@ public class ATSTAnimationController : MonoBehaviour {
 			isWalkAndStrafe = false; // main idle animation
 			isWalkAndRotation = false;
 			isStrafeAndRotation = false;
-			isIdle = true;
+			localIsIdle = true;
 		}
 		// Walk and strafe || walk
 		else if (
@@ -148,6 +148,8 @@ public class ATSTAnimationController : MonoBehaviour {
 		animator.SetBool("IsWalkAndStrafe", isWalkAndStrafe);
 		animator.SetBool("IsWalkAndRotation", isWalkAndRotation);
 		animator.SetBool("IsStrafeAndRotation", isStrafeAndRotation);
+
+		isIdle = localIsIdle;
 
 		_lastJoystick = _joystick;
 
