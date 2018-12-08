@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class HeadController : MonoBehaviour {
 
@@ -30,14 +31,21 @@ public class HeadController : MonoBehaviour {
 	private Vector3 _up = new Vector3(0, 1, 0);
 	private Vector3 _down = new Vector3(0, -1, 0);
 
+	private void Awake()
+	{
+		Assert.IsNotNull(head, "[HeadController]: Head is null");
+		Assert.IsNotNull(rotationOrigin, "[HeadController]: Rotation Origin is null");
+		Assert.IsNotNull(power, "[HeadController]: Power Controller is null");
+	}
+
 	// Use this for initialization
-	void Start ()
+	private void Start ()
 	{
 		
 	}
-	
+
 	// Update is called once per frame
-	void Update ()
+	private void Update ()
 	{
 		UpdateNormals();
 
@@ -45,7 +53,7 @@ public class HeadController : MonoBehaviour {
 		_joystick.headVertical = Input.GetAxis("HeadVertical");
 	}
 
-	void FixedUpdate()
+	private void FixedUpdate()
 	{
 		HeadRotate();
 	}
@@ -60,7 +68,7 @@ public class HeadController : MonoBehaviour {
 		_down = -_up;
 	}
 
-	void HeadRotate()
+	private void HeadRotate()
 	{
 		if (power.state)
 		{
@@ -97,7 +105,7 @@ public class HeadController : MonoBehaviour {
 
 			if (rotationX > minRotationX && rotationX < maxRotationX)
 			{
-				head.transform.RotateAround(head.transform.position, _right, _joystick.headVertical * rotationSpeed);
+				head.transform.RotateAround(head.transform.position, _right, _joystick.headVertical * rotationSpeed * Time.deltaTime);
 			}
 			else
 			{

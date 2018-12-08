@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class ATSTAnimationController : MonoBehaviour {
 
@@ -28,8 +29,14 @@ public class ATSTAnimationController : MonoBehaviour {
 	private float _lastAnimationVertical = 0.0f;
 	private float _lastAnimationHorizontal = 0.0f;
 
+	private void Awake()
+	{
+		Assert.IsNotNull(animator, "[ATSTAnimationController]: Animator is null");
+		Assert.IsNotNull(power, "[ATSTAnimationController]: Power Controller is null");
+	}
+
 	// Use this for initialization
-	void Start ()
+	private void Start ()
 	{
 	}
 

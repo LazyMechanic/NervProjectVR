@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class ATSTMovementController : MonoBehaviour {
 	
-	public Transform atstTransform;
 	public Rigidbody atstRigidbody;
-	public CapsuleCollider atstCollider;
 
 	public Transform rotationPoint;
 
@@ -28,26 +27,25 @@ public class ATSTMovementController : MonoBehaviour {
     private Vector3 _up			= new Vector3(0, 1, 0);
     private Vector3 _down		= new Vector3(0, -1, 0);
 
+	private void Awake()
+	{
+		Assert.IsNotNull(atstRigidbody, "[ATSTMovementController]: Atst Rigidbody is null");
+		Assert.IsNotNull(rotationPoint, "[ATSTMovementController]: Rotation Point is null");
+		Assert.IsNotNull(animationController, "[ATSTMovementController]: Animation Controller is null");
+		Assert.IsNotNull(power, "[ATSTMovementController]: Power Controller is null");
+	}
+
 	// Use this for initialization
 	private void Start ()
 	{
-		for (int i = 0; i < Input.GetJoystickNames().Length; i++)
-		{
 
-			Debug.Log(Input.GetJoystickNames()[i]);
-		}
 	}
 	
 	// Update is called once per frame
 	private void Update ()
 	{
 		UpdateNormals();
-
 		UpdateJoystickAxes();
-
-		//Debug.Log("Round = " + _joystick.round);
-		//Debug.Log("Vertical = " + _joystick.vertical);
-		//Debug.Log("Horizontal = " + _joystick.horizontal);
 	}
 
 	private void FixedUpdate()
@@ -115,19 +113,15 @@ public class ATSTMovementController : MonoBehaviour {
 	{
         if (power.state)
         {
-            // Rotation
-            if (animationController.isWalkAndRotation ||
-                animationController.isStrafeAndRotation)
-            {
-				RotateAroundPoint(atstRigidbody, _joystick.round * roundSpeed * Time.deltaTime, _up, rotationPoint.position);
-			}
+			atstRigidbody.transform.RotateAround(rotationPoint.position, _up, _joystick.round * roundSpeed * Time.deltaTime);
+			//RotateAroundPoint(atstRigidbody, _joystick.round * roundSpeed * Time.deltaTime, _up, rotationPoint.position);
         }
     }
 
-	private void RotateAroundPoint(Rigidbody body, float angle, Vector3 axis, Vector3 origin)
-	{
-		Quaternion q = Quaternion.AngleAxis(angle, axis);
-		body.MovePosition(q * (body.transform.position - origin) + origin);
-		body.MoveRotation(body.transform.rotation * q);
-	}
+	//private void RotateAroundPoint(Rigidbody body, float angle, Vector3 axis, Vector3 origin)
+	//{
+	//	Quaternion q = Quaternion.AngleAxis(angle, axis);
+	//	body.MovePosition(q * (body.transform.position - origin) + origin);
+	//	body.MoveRotation(body.transform.rotation * q);
+	//}
 }

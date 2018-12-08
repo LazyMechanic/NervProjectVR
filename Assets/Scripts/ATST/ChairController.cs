@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class ChairController : MonoBehaviour {
 
@@ -31,17 +32,22 @@ public class ChairController : MonoBehaviour {
     private Vector3 _up = new Vector3(0, 1, 0);
     private Vector3 _down = new Vector3(0, -1, 0);
 
-    void Start()
-    {
-		lastChairBoneRotation = chairBone.localEulerAngles;
+	private void Awake()
+	{
+		Assert.IsNotNull(chairBone, "[ChairController]: Chair Bone is null");
+		Assert.IsNotNull(headController, "[ChairController]: Head Controller is null");
+		Assert.IsNotNull(atstController, "[ChairController]: Atst Controller is null");
+	}
 
+	private void Start()
+    {
 		_chairController = new FutuRiftController(portNumber);
 
 		UpdateChairRotation();
         _chairController.Start();
     }
 
-    void Update()
+	private void Update()
     {
 		UpdateNormals();
 		CalculateRotation();
