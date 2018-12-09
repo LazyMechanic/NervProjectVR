@@ -48,14 +48,18 @@ public class HeadController : MonoBehaviour {
 	private void Update ()
 	{
 		UpdateNormals();
-
-		_joystick.headHorizontal = Input.GetAxis("HeadHorizontal");
-		_joystick.headVertical = Input.GetAxis("HeadVertical");
+		UpdateJoystickAxes();
 	}
 
 	private void FixedUpdate()
 	{
 		HeadRotate();
+	}
+
+	private void UpdateJoystickAxes()
+	{
+		_joystick.headHorizontal = Input.GetAxis("HeadHorizontal");
+		_joystick.headVertical = Input.GetAxis("HeadVertical");
 	}
 
 	private void UpdateNormals()

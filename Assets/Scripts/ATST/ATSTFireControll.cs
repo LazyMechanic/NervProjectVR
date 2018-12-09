@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ATSTFireControll : MonoBehaviour {
 
-	public Rigidbody leftLaser;
-	public Rigidbody rightLaser;
+	[SerializeField] private Rigidbody _leftLaserPrefab;
+	[SerializeField] private Rigidbody _rightLaserPrefab;
+
+	public Transform originTransform;
 
 	private bool _fire;
 
-	private Vector3 _leftLaserPosition = new Vector3(-0.00988f, 0.00062f, 0.01785f);
-	private Vector3 _rightLaserPosition = new Vector3(-0.00987999f, 0.00062f, 0.01785f);
+	private Vector3 _leftLaserPosition = new Vector3(6e-05f, 0.00222f, -0.00054f);
+	private Vector3 _rightLaserPosition = new Vector3(8e-05f, 0.00222f, 0.00054f);
 
 
 	// Use this for initialization
@@ -22,16 +24,11 @@ public class ATSTFireControll : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		UpdateFireState();
-		OnFire();
-	}
-
-	public void OnLaserEnter()
-	{
+		InputFireState();
 
 	}
 
-	private void UpdateFireState()
+	private void InputFireState()
 	{
 		_fire = Input.GetButtonDown("Fire");
 	}
@@ -40,13 +37,18 @@ public class ATSTFireControll : MonoBehaviour {
 	{
 
 	}
-	
+
+	public void OnLaserEnter()
+	{
+
+	}
+
 	//private GameObject MakeLasers()
 	//{
 	//	//GameObject.Instantiate()
 	//	//Rigidbody bullet = Instantiate(prefab);
 
 	//	//bullet.AddForce()
-		
+
 	//}
 }

@@ -114,14 +114,6 @@ public class ATSTMovementController : MonoBehaviour {
         if (power.state)
         {
 			atstRigidbody.transform.RotateAround(rotationPoint.position, _up, _joystick.round * roundSpeed * Time.deltaTime);
-			//RotateAroundPoint(atstRigidbody, _joystick.round * roundSpeed * Time.deltaTime, _up, rotationPoint.position);
         }
     }
-
-	//private void RotateAroundPoint(Rigidbody body, float angle, Vector3 axis, Vector3 origin)
-	//{
-	//	Quaternion q = Quaternion.AngleAxis(angle, axis);
-	//	body.MovePosition(q * (body.transform.position - origin) + origin);
-	//	body.MoveRotation(body.transform.rotation * q);
-	//}
 }
